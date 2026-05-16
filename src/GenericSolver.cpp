@@ -92,7 +92,7 @@ void GenericSolver::update(const gtsam::NonlinearFactorGraph& nfg,
         params.setVerbosityLM("SUMMARY");
         log<INFO>("Running LM");
       }
-      params.diagonalDamping = true;
+      params.setDiagonalDamping(true);
       result = gtsam::LevenbergMarquardtOptimizer(full_nfg, full_values, params)
                    .optimize();
     } else if (solver_type_ == Solver::GN) {
